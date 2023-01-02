@@ -12,13 +12,14 @@ export default {
       info: null
     }
   },
-  async mounted () {
+  mounted () {
     axios
-      .get('https://farmanet.minsal.cl/index.php/ws/getLocalesTurnos')
-      .then(response => (this.info = response))
+      .get('/farmacia/index.php/ws/getLocalesTurnos')
+      .then(response => {
+        this.info = response.data
+      })
   }
 }
-
 </script>
 
 <style scoped>
